@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Selamat Ulang Tahun, Fitaa!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body { font-family: 'Segoe UI', Arial, sans-serif; background: #ffe5ec; text-align: center; margin: 0; padding: 0; }
+    .container { margin: 30px auto; max-width: 400px; background: #fff0f6; border-radius: 20px; box-shadow: 0 4px 16px rgba(0,0,0,0.09); padding: 25px 15px 30px 15px; }
+    #question, #birthday, #cake, #greeting { margin-bottom: 20px; }
+    .btn { background: #db6d88; color: white; border: none; border-radius: 8px; padding: 12px 28px; font-size: 1.1rem; cursor: pointer; transition: background 0.3s; margin-top: 12px; }
+    .btn:hover { background: #ad4662; }
+    #cake svg { width: 120px; height: auto; margin-bottom: 10px; }
+    input[type=file] { margin: 12px 0; }
+    textarea { width: 80%; min-height: 60px; padding: 6px; border-radius: 8px; border: 1px solid #db6d88; margin-top: 10px; font-size: 1rem; resize: vertical; }
+    form { margin-top: 20px; }
+    .hidden { display: none; }
+    #party { position: fixed; left: 0; top: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 99; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div id="question"></div>
+    <button class="btn" id="nextBtn">Lanjutkan</button>
+    <div id="birthday" style="display:none;">
+      <div id="cake">
+        <svg viewBox="0 0 120 120">
+          <ellipse cx="60" cy="100" rx="40" ry="18" fill="#fae3d9"/>
+          <rect x="30" y="50" width="60" height="50" rx="20" fill="#f08080"/>
+          <rect x="50" y="35" width="20" height="20" rx="5" fill="#fff0f6"/>
+          <rect x="57" y="18" width="6" height="18" rx="3" fill="#fff7ae"/>
+          <circle cx="60" cy="18" r="5" fill="#ffd700"/>
+        </svg>
+        <div><b>Kue Ulang Tahun untukmu 🎂</b></div>
+      </div>
+      <div id="greeting">
+        <p id="greetingText"></p>
+        <div id="harapanText"></div>
+        <div id="harapanDoa" style="margin-top:10px;color:#db6d88;font-weight:bold;"></div>
+      </div>
+      <form id="jawabanForm" action="https://formsubmit.co/rafaarfiansyah4@gmail.com" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="_subject" value="Jawaban Ulang Tahun dari Pacar">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" id="formUlangTahun" name="ulang_tahun_ke" value="">
+        <input type="hidden" id="formHarapan" name="harapan" value="">
+        <input type="hidden" id="formQ1" name="jawaban1" value="">
+        <input type="hidden" id="formQ4" name="jawaban4" value="">
+        <label>Upload foto kamu (satu aja ya):</label>
+        <input type="file" name="foto" id="uploadPhoto" accept="image/*" required><br>
+        <div id="preview"></div>
+        <button type="submit" class="btn" style="margin-top:14px;">Kirim Jawaban ke Email</button>
+      </form>
+      <div id="infoKirim" class="hidden">Jawabanmu sudah dikirim. Terima kasih! 🎉</div>
+    </div>
+    <canvas id="party" class="hidden"></canvas>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
